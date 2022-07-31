@@ -1,14 +1,194 @@
 <h1 align="center">
-    Design Patterns
+    Object Oriented Design
  </h1>
- <h5 align="center">
+
+ <p align="center">
    Author: Anant Bharti
- </h5>
+ </p>
  
+ <h4 > Principles of object oriented design</h4>
+ 
+ <h3>
+1. Program to an interface not an implementation
+</h3>
+
+```java
+
+ interface Shape {
+
+    void draw();
+}
+
+class Circle implements Shape {
+    @Override
+    public void draw() {
+        System.out.println(" drawing circle ....");
+    }
+}
+
+class Rectangle implements Shape {
+    @Override
+    public void draw() {
+        System.out.println(" drawing rectangle ....");
+    }
+}
+
+class Square implements Shape {
+    @Override
+    public void draw() {
+        System.out.println(" drawing square ....");
+    }
+}
+
+ public class Test {
+
+
+    public static void main(String[] args) {
+        Shape shape = new Circle();
+        print(shape);
+	shape = new Square();
+	print(shape);
+	shape = new Rectangle();
+	print(shape);
+    }
+
+    private static void print(Shape shape) {
+        shape.draw();
+    }
+}
+
+// output
+
+// drawing circle ....
+// drawing square ....
+// drawing rectangle ....
+
+```
+
+```java
+
+// 1. Always use interface type as a reference type.
+
+ // Better
+List<String> list = new ArrayList<>(); 
+
+// Avoid
+ArrayList<String> list = new ArrayList<>();
+
+// By declaring a collection using an interface type, the code would be more flexible 
+// as you can change the concrete implementation easily when needed, 
+// for example:
+List<String> list = new LinkedList<>();
+
+// Better
+Set<String> set = new HashSet<>();
+
+//Avoid
+HashSet<String> employees = new HashSet<>();
+
+// Better
+Map<String,String> map = new HashMap<>();
+
+//Avoid
+HashMap<String,String> map = new HashMap<>();
+
+
+// 2. Always use interface type as a return type
+
+public Collection listEmployees() {
+
+    List<Employee> employees = new ArrayList<>();
+    // add Employees to the list
+    return employees;
+}
+
+// 3. Always use Interface Types as a method argument
+
+public void foo(Set<Integer> numbers) {
+   // do something
+}
+
+```
+ 
+<h3>
+2. Favor object composition over inheritance
+</h3>
+
+<p>
+<ol>
+	
+	i.   Java does not support multiple inheritances
+	ii.  Composition offers better test-ability of a class than Inheritance
+	iii. Inheritance’s disadvantages is that it breaks encapsulation
+	iv.  Flexible enough to replace the better and updated version of the Composed class implementation
+
+</ol>
+</p>
+
+
+```java
+
+// Inheritance
+
+class Person {
+ String title;
+ String name;
+ int age;
+}
+
+class Employee extends Person {
+ int salary;
+ String title;
+}
+
+```
+
+```java
+
+// composition
+
+class Person {
+ String title;
+ String name;
+ int age;
+
+ public Person(String title, String name, String age) {
+    this.title = title;
+    this.name = name;
+    this.age = age;
+ }
+
+}
+
+class Employee {
+ int salary;
+ private Person person;
+
+ public Employee(Person p, int salary) {
+     this.person = p;
+     this.salary = salary;
+ }
+}
+
+Person p = new Person ("Mr.", "Kapil", 25);
+Employee kapil = new Employee (p, 100000);
+
+```
+ 
+ <h3 align="center">
+    Design Patterns
+ </h3>
+ 
+ | Patterns  | Description |
+| --- | --------- |
+| **Creational** | These design patterns provide a way to create objects while hiding the creation logic, rather than instantiating objects directly using new operator. This gives program more flexibility in deciding which objects need to be created for a given use case. Ex: Factory, Abstract Factory, Singleton, Builder |
+| **Structural** | These design patterns concern class and object composition. Concept of inheritance is used to compose interfaces and define ways to compose objects to obtain new functionalities. Ex: Decorator, Adapter |
+| **Behavioral** | These design patterns are specifically concerned with communication between objects. Ex: Behavior |
+
  
  ### Contents  
  
-| No. | [Standard Design Patterns](#design-patterns) |
+|   | [Standard Design Patterns](#design-patterns) |
 | --- | --------- |
 |1   | [Factory](#factory-pattern) |
 |2   | [Abstract Factory](#abstract-factory-pattern)|
