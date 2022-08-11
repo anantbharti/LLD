@@ -56,13 +56,13 @@ class Square implements Shape {
         shape.draw();
     }
 }
+```
+Output
 
-// output
-
-// drawing circle ....
-// drawing square ....
-// drawing rectangle ....
-
+```
+drawing circle ....
+drawing square ....
+drawing rectangle ....
 ```
 
 ```java
@@ -276,13 +276,12 @@ public class FactoryPatternDemo {
       shape3.draw();
    }
 }
-
-// Output
-// Inside Circle::draw() method.
-// Inside Rectangle::draw() method.
-// Inside Square::draw() method.
-
-
+```
+Output
+```
+Inside Circle::draw() method.
+Inside Rectangle::draw() method.
+Inside Square::draw() method.
 ```
 
 **[⬆ Back to Top](#----design-patterns-)** 
@@ -386,13 +385,13 @@ public class AbstractFactoryPatternDemo {
       
    }
 }
-
-// output
-// Inside Rectangle::draw() method.
-// Inside Square::draw() method.
-// Inside RoundedRectangle::draw() method.
-// Inside RoundedSquare::draw() method.
-
+```
+Output
+```
+Inside Rectangle::draw() method.
+Inside Square::draw() method.
+Inside RoundedRectangle::draw() method.
+Inside RoundedSquare::draw() method.
 ```
 
 **[⬆ Back to Top](#----design-patterns-)** 
