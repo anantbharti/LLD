@@ -34,7 +34,7 @@ public class Call {
 ```
 Employee.java
 ```java
-public abstract class Employee {
+public class Employee {
 	String name;
 	int level;
 	
