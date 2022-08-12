@@ -433,10 +433,10 @@ public class SingletonPatternDemo {
       object.showMessage();
    }
 }
-
-// Output
-// Hello World!
-
+```
+Output
+```
+Hello World!
 ```
 
 **[⬆ Back to Top](#----design-patterns-)** 
@@ -596,19 +596,18 @@ public class Meal {
       System.out.println("Total Cost: " + nonVegMeal.getCost());
    }
 }
+```
+Output
+```
+ Veg Meal
+ Item : Veg Burger, Packing : Wrapper, Price : 25.0
+ Item : Coke, Packing : Bottle, Price : 30.0
+ Total Cost: 55.0
 
-// output 
-
-// Veg Meal
-// Item : Veg Burger, Packing : Wrapper, Price : 25.0
-// Item : Coke, Packing : Bottle, Price : 30.0
-// Total Cost: 55.0
-
-// Non-Veg Meal
-// Item : Chicken Burger, Packing : Wrapper, Price : 50.5
-// Item : Pepsi, Packing : Bottle, Price : 35.0
-// Total Cost: 85.5
-
+ Non-Veg Meal
+ Item : Chicken Burger, Packing : Wrapper, Price : 50.5
+ Item : Pepsi, Packing : Bottle, Price : 35.0
+ Total Cost: 85.5
 ```
 
 **[⬆ Back to Top](#----design-patterns-)** 
@@ -686,22 +685,20 @@ public class DecoratorPatternDemo {
       redRectangle.draw();
    }
 }
+```
+Output
+```
+ Circle with normal border
 
-// output 
+ Shape: Circle
 
-// Circle with normal border
+ Circle of red border
+ Shape: Circle
+ Border Color: Red
 
-// Shape: Circle
-
-// Circle of red border
-// Shape: Circle
-// Border Color: Red
-
-// Rectangle of red border
-// Shape: Rectangle
-// Border Color: Red
-
-
+ Rectangle of red border
+ Shape: Rectangle
+ Border Color: Red
 ```
 
 **[⬆ Back to Top](#----design-patterns-)** 
@@ -808,15 +805,13 @@ public class DecoratorPatternDemo {
       audioPlayer.play("avi", "mind me.avi");
    }
 }
-
-
-// Output
-
-// Playing mp3 file. Name: beyond the horizon.mp3
-// Playing mp4 file. Name: alone.mp4
-// Playing vlc file. Name: far far away.vlc
-// Invalid media. avi format not supported
-
+```
+Output
+```
+Playing mp3 file. Name: beyond the horizon.mp3
+Playing mp4 file. Name: alone.mp4
+Playing vlc file. Name: far far away.vlc
+Invalid media. avi format not supported
 ```
 
 **[⬆ Back to Top](#----design-patterns-)** 
@@ -880,13 +875,12 @@ public class StrategyPatternDemo {
       System.out.println("10 * 5 = " + context.executeStrategy(10, 5));
    }
 }
-
-// output 
-
-// 10 + 5 = 15
-// 10 - 5 = 5
-// 10 * 5 = 50
-
+```
+Output
+```
+10 + 5 = 15
+10 - 5 = 5
+10 * 5 = 50
 ```
 
 **[⬆ Back to Top](#----design-patterns-)** 
