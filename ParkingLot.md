@@ -52,7 +52,7 @@ public class Slot {
 ```
 Vehicle.java
 ```java
-public abstract class Vehicle {
+public class Vehicle {
 	private String number;
 	private Size vehicleSize;
 	private Slot parkingSlot;
