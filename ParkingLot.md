@@ -108,6 +108,102 @@ public class Bus extends Vehicle{
 	}
 }
 ```
+
+ParkingLot.java
+```java
+import java.util.*;
+
+public class ParkingLot {
+	private List<List<Slot>> slots;
+	private List<Integer> availableSlots; 
+	public static ParkingLot instance;
+	
+	private ParkingLot() {
+		slots = new ArrayList<List<Slot>>();
+		availableSlots = new ArrayList<Integer>();
+		for(int i=0;i<3;i++)
+		{
+			List<Slot> l = new ArrayList<Slot>();
+			slots.add(l);
+			availableSlots.add(0);
+		}
+	}
+	
+	public void addSlot(Slot slot) {
+		int slotsIndex = slot.getSlotSize().ordinal();
+		
+		List<Slot> l = slots.get(slotsIndex);
+		int count = availableSlots.get(slotsIndex);
+		
+		l.add(slot);
+		
+		slots.set(slotsIndex, l);
+		availableSlots.set(slotsIndex, count+1);
+	}
+	
+	public static ParkingLot getInstance() {
+		if(instance != null)
+			return instance;
+		instance = new ParkingLot();
+		return instance;
+	}
+	
+	public void parkVehicle(Vehicle vehicle) throws Exception {
+		
+		int slotsIndex = vehicle.getVehicleSize().ordinal();
+		
+		List<Slot> l = slots.get(slotsIndex);
+		
+		for(int i=0;i<l.size();i++)
+		{
+			if(!l.get(i).isFree())
+				continue;
+			
+			Slot slot = l.get(i);
+			
+			vehicle.setParkingSlot(slot);
+			slot.setParkedVehicle(vehicle);
+			slot.setFree(false);
+			
+			int count = availableSlots.get(slotsIndex);
+			availableSlots.set(slotsIndex, count-1);
+			
+			System.out.println(slot.getSlotDetail()+" is alotted to vehicle no: "+vehicle.getNumber());
+			return;
+		}
+		
+		throw new Exception("No "+ vehicle.getVehicleSize().name()+" slot is available for vehicle "+vehicle.getNumber());
+		
+	}
+	
+	public void unparkVehicle(Vehicle vehicle) throws Exception{
+		
+		if(vehicle.getParkingSlot() == null)
+			throw new Exception("Vehicle "+vehicle.getNumber()+" was not parked!");
+		
+		Slot slot = vehicle.getParkingSlot();
+		
+		int slotsIndex = slot.getSlotSize().ordinal();
+		int count = availableSlots.get(slotsIndex);
+		availableSlots.set(slotsIndex, count+1);
+		
+		slot.setParkedVehicle(null);
+		slot.setFree(true);
+		
+		vehicle.setParkingSlot(null);
+		
+		System.out.println("Vehicle "+vehicle.getNumber()+" is unparked. "+slot.getSlotDetail()+" is available.");
+	}
+	
+	public void showAvailableSlots() {
+		System.out.println("Available slots: ");
+		System.out.println("SMALL:   "+availableSlots.get(0));
+		System.out.println("COMPACT: "+availableSlots.get(1));
+		System.out.println("LARGE:   "+availableSlots.get(2));
+	}
+}
+```
+
 Main.java
 ```java
 import java.util.*;
